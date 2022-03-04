@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 11:55:54 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/03/04 14:03:45 by psoto-go         ###   ########.fr       */
+/*   Created: 2021/09/23 10:51:26 by psoto-go          #+#    #+#             */
+/*   Updated: 2022/03/04 14:14:18 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
 
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_philo philo;
-
-	check_inputs(argc, argv, &philo);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:12:39 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/09/21 19:34:12 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:41:20 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void	fill_struct(t_philo *philo, char **argv)
 	int flag;
 
 	flag = 0;
-	philo->num_philos = ft_atol(argv[1], &flag);
-	philo->num_forks = ft_atol(argv[1], &flag);
-	philo->time_to_die = ft_atol(argv[2], &flag);
-	philo->time_to_eat = ft_atol(argv[3], &flag);
-	philo->time_to_sleep = ft_atol(argv[4], &flag);
+	philo->num_philos = ft_atoi(argv[1], &flag);
+	philo->num_forks = ft_atoi(argv[1], &flag);
+	philo->time_to_die = ft_atoi(argv[2], &flag);
+	philo->time_to_eat = ft_atoi(argv[3], &flag);
+	philo->time_to_sleep = ft_atoi(argv[4], &flag);
 	if (argv[5])
-		philo->num_times_must_eat = ft_atol(argv[5], &flag);
+		philo->num_times_must_eat = ft_atoi(argv[5], &flag);
 }
 
 void	check_inputs(int argc, char **argv, t_philo *philo)

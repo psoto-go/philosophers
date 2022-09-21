@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 15:27:47 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/09/21 19:45:56 by psoto-go         ###   ########.fr       */
+/*   Created: 2022/09/21 19:40:01 by psoto-go          #+#    #+#             */
+/*   Updated: 2022/09/21 19:46:00 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
 
-long	is_num_l(const char *str, int i, int s, int *flag)
+int	is_num_i(const char *str, int i, int s, int *flag)
 {
-	unsigned long int	num;
+	unsigned int	num;
 
 	num = 0;
 	while (str[i] >= '0' && str[i] <= '9')
@@ -31,11 +31,11 @@ long	is_num_l(const char *str, int i, int s, int *flag)
 	return (num);
 }
 
-long	ft_atol(const char *str, int *flag)
+int	ft_atoi(const char *str, int *flag)
 {
-	long int	i;
-	long int	s;
-	long int	num;
+	int	i;
+	int	s;
+	int	num;
 
 	i = 0;
 	num = 0;
@@ -52,6 +52,6 @@ long	ft_atol(const char *str, int *flag)
 		i++;
 	}
 	if (str[i] >= '0' && str[i] <= '9')
-		return (is_num_l(str, i, s, flag));
+		return (is_num_i(str, i, s, flag));
 	return (0);
 }

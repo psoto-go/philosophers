@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:12:39 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/03/04 16:31:56 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:34:12 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ void	check_num_args(int argc)
 
 void	check_corrects_inputs(t_philo *philo, char **argv)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
+	int		flag;
 
+	flag = 0;
 	i = 1;
 	j = 0;
 	while (argv[i])
@@ -45,6 +47,8 @@ void	check_corrects_inputs(t_philo *philo, char **argv)
 				ft_error(2);
 			j++;
 		}
+		if (ft_atol(argv[i], &flag) && flag == 1)
+			ft_error(3);
 		i++;
 	}
 	philo = 0;
@@ -52,15 +56,17 @@ void	check_corrects_inputs(t_philo *philo, char **argv)
 
 void	fill_struct(t_philo *philo, char **argv)
 {
-	philo->num_philos = ft_atol(argv[1]);
-	philo->num_forks = ft_atol(argv[1]);
-	philo->time_to_die = ft_atol(argv[2]);
-	philo->time_to_eat = ft_atol(argv[3]);
-	philo->time_to_sleep = ft_atol(argv[4]);
-	if (argv[5])
-		philo->num_times_must_eat = ft_atol(argv[5]);
-}
+	int flag;
 
+	flag = 0;
+	philo->num_philos = ft_atol(argv[1], &flag);
+	philo->num_forks = ft_atol(argv[1], &flag);
+	philo->time_to_die = ft_atol(argv[2], &flag);
+	philo->time_to_eat = ft_atol(argv[3], &flag);
+	philo->time_to_sleep = ft_atol(argv[4], &flag);
+	if (argv[5])
+		philo->num_times_must_eat = ft_atol(argv[5], &flag);
+}
 
 void	check_inputs(int argc, char **argv, t_philo *philo)
 {

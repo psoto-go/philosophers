@@ -6,47 +6,52 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:27:47 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/03/04 16:32:35 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:52:24 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
 
-static int	ignorespaces(const char *str)
+long	is_num(const char *str, int i, int s, int *flag)
 {
-	int	spaces;
+	unsigned long int	num;
 
-	spaces = 0;
-	while (str[spaces] == ' ' || str[spaces] == '\t' || str[spaces] == '\n' || \
-	str[spaces] == '\r' || str[spaces] == '\v' || str[spaces] == '\f')
-		spaces++;
-	return (spaces);
+	num = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = (num * 10) + (int)(str[i] - '0');
+		i++;
+	}
+	if (s != '-' && num > 2147483647)
+		*flag = 1;
+	if (s == '-' && num > 2147483648)
+		*flag = 1;
+	if (s == '-')
+		return (-num);
+	return (num);
 }
 
-long	ft_atol(const char *str)
+long	ft_atol(const char *str, int *flag)
 {
-	char		*text;
-	int			spaces;
-	long long	sig;
-	long long	res;
+	long int	i;
+	long int	s;
+	long int	num;
 
-	text = (char *)str;
-	sig = 1;
-	res = 0;
-	spaces = ignorespaces(str);
-	if (str[spaces] == '-')
-		sig = -1;
-	if (str[spaces] == '-' || str[spaces] == '+')
-		spaces++;
-	while (str[spaces] >= '0' && str[spaces] <= '9')
+	i = 0;
+	num = 0;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'
+		|| str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		res = res * 10 + (str[spaces] - '0');
-		spaces++;
-		if (res * sig > 9223372036854775807)
-			ft_error(3);
-		if (res * sig < -9223372036854775807)
-			ft_error(3);
+		s = '+';
+		if (str[i] == '-')
+			s = '-';
+		i++;
 	}
-	res = res * sig;
-	return ((long)res);
+	if (str[i] >= '0' && str[i] <= '9')
+		return (is_num(str, i, s, flag));
+	return (0);
 }

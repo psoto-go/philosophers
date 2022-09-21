@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:51:50 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/03/04 16:32:40 by psoto-go         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:52:51 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_error(int num);
 
 // Utils
 
-int		ft_isdigit(int c);
-long		ft_atol(const char *str);
+int			ft_isdigit(int c);
+long		ft_atol(const char *str, int *flag);
 
 #endif

@@ -12,15 +12,14 @@
 
 #include "../includes/philosophers.h"
 
-void	init_values(t_philo *philo, int argc)
+void	init_values(t_philo *philo)
 {
 	philo->num_philos = 0;
 	philo->num_forks = 0;
 	philo->time_to_die = 0;
 	philo->time_to_sleep = 0;
 	philo->time_to_eat = 0;
-	if (argc == 6)
-		philo->num_times_must_eat = 0;
+	philo->num_times_must_eat = 0;
 }
 
 void	check_num_args(int argc)
@@ -29,7 +28,7 @@ void	check_num_args(int argc)
 		ft_error(1);
 }
 
-void	check_corrects_inputs(t_philo *philo, char **argv)
+void	check_corrects_inputs(char **argv)
 {
 	int		i;
 	int		j;
@@ -51,7 +50,6 @@ void	check_corrects_inputs(t_philo *philo, char **argv)
 			ft_error(3);
 		i++;
 	}
-	philo = 0;
 }
 
 void	fill_struct(t_philo *philo, char **argv)
@@ -71,8 +69,8 @@ void	fill_struct(t_philo *philo, char **argv)
 void	check_inputs(int argc, char **argv, t_philo *philo)
 {
 	check_num_args(argc);
-	init_values(philo, argc);
-	check_corrects_inputs(philo, argv);
+	check_corrects_inputs(argv);
+	init_values(philo);
 	fill_struct(philo, argv);
 	printf("%lld\n", philo->num_philos);
 	printf("%lld\n", philo->num_forks);

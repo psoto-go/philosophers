@@ -35,10 +35,8 @@ long	ft_atol(const char *str, int *flag)
 {
 	long int	i;
 	long int	s;
-	long int	num;
 
 	i = 0;
-	num = 0;
 	if (str[i] == '\0')
 		return (0);
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f'

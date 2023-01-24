@@ -6,12 +6,13 @@
 #    By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/21 16:57:12 by psoto-go          #+#    #+#              #
-#    Updated: 2022/09/21 19:45:24 by psoto-go         ###   ########.fr        #
+#    Updated: 2023/01/24 19:32:54 by psoto-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			:=	srcs/philosophers.c srcs/parser.c srcs/ft_errors.c \
-					utils/ft_isdigit.c utils/ft_atol.c utils/ft_atoi.c
+					utils/ft_isdigit.c utils/ft_atol.c utils/ft_atoi.c \
+					srcs/philos.c
 
 OBJS			:= $(SRCS:.c=.o)
 

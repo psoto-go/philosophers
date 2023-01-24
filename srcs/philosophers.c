@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:55:54 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/03/04 14:03:45 by psoto-go         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:31:18 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_philo philo;
+	t_inputs philo;
 
 	check_inputs(argc, argv, &philo);
+	fill_philos(&philo);
 }

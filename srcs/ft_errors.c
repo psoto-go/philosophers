@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:15:53 by psoto-go          #+#    #+#             */
-/*   Updated: 2022/09/21 19:36:27 by psoto-go         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:55:49 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ void	ft_error(int num)
 		printf("%s\n", "Error de argumentos");
 	if (num == 3)
 		printf("%s\n", "Numero mas largo de int");
+	if (num == 4)
+		printf("%s\n", "Error alocando memoria");
+	if (num == 5)
+		printf("%s\n", "Error creando filosofo");
 	ft_exit();
 }

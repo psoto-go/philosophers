@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:51:50 by psoto-go          #+#    #+#             */
-/*   Updated: 2023/01/24 20:25:11 by psoto-go         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:46:35 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_philosopher
 	struct timeval	time;
 	pthread_t		pid;
 	struct s_inputs	*inputs;
+
 } t_philosopher;
 
 typedef struct s_inputs
@@ -48,6 +49,7 @@ typedef struct s_inputs
 	long long		num_times_must_eat;
 	struct timeval	time_start;
 	int				everyone_alive;
+	int				end;
 	t_philosopher	**philosophers;
 
 } t_inputs;
@@ -60,7 +62,7 @@ t_philosopher	*new_philo(t_inputs *philo, int philo_index);
 
 int				fill_philos(t_inputs *philo);
 
-
+void			*starting(void *argc);
 // Utils
 
 int			ft_isdigit(int c);

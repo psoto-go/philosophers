@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:19:26 by psoto-go          #+#    #+#             */
-/*   Updated: 2023/01/24 20:35:02 by psoto-go         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:01:19 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ t_philosopher *new_philo(t_inputs *philos, int philo_index)
     return(philo);
 }
 
+void	*starting(void *argc)
+{
+	printf("%s\n", "Empieza a ejecutarse");
+	argc = NULL;
+	return ((void *)1);
+}
+
 int	fill_philos(t_inputs *philos)
 {
     int i;
@@ -45,7 +52,7 @@ int	fill_philos(t_inputs *philos)
 	i = 0;
 	while (i < philos->num_philos)
     {
-        // pthread_create(&philos->philosophers[i]->pid, NULL,)
+        pthread_create(&philos->philosophers[i]->pid, NULL, starting, NULL);
         i++;
     }
 

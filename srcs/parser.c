@@ -6,7 +6,7 @@
 /*   By: psoto-go <psoto-go@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:12:39 by psoto-go          #+#    #+#             */
-/*   Updated: 2023/01/24 19:32:04 by psoto-go         ###   ########.fr       */
+/*   Updated: 2023/03/01 19:57:53 by psoto-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	init_values(t_inputs *philo, int argc)
 {
+
+	struct timeval	time;
+	
 	philo->num_philos = 0;
 	philo->num_forks = 0;
 	philo->time_to_die = 0;
@@ -24,6 +27,10 @@ void	init_values(t_inputs *philo, int argc)
 	else if (argc < 6)
 		philo->num_times_must_eat = -1;
 	philo->everyone_alive = 0;
+	philo->end = 0;
+	gettimeofday(&time, NULL);
+	philo->time_start = time;
+
 }
 
 void	check_num_args(int argc)
